@@ -3,7 +3,7 @@
 
 <hr>
 
-> <h5> <a href="https://github.com/VigneshDhakshnamoorthy/KMDV-Selenium/raw/main/KMDV%20Framework.jar"><img src="https://img.shields.io/badge/Download-KMDV%20Framework.jar-red" alt="Download JAR"/></a></h5>
+> <h5> <a href="https://github.com/VigneshDhakshnamoorthy/KMDV-Automation-Framework/blob/master/KMDV%20Framework.jar"><img src="https://img.shields.io/badge/Download-KMDV%20Framework.jar-red" alt="Download JAR"/></a></h5>
 ```java
 //download KMDVFramework.jar from above link and save
 Right Click Project > Build Path > Configure Build Path...
