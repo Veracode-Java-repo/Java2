@@ -338,22 +338,22 @@ selenium.Yesterday
 <tr>
 	  <td>
 	    <b>SuitesXML</b> <br>
-	    <a href="https://github.com/VigneshDhakshnamoorthy/KMDV-Selenium/tree/main/SuitesXML"><i>can store testRunner XML files </i></a>
+	    <a href="/SuitesXML"><i>can store testRunner XML files </i></a>
 	</td>
 	<td>
 	    <b>src / test / resources / Properties</b> <br>
-	    <a href="https://github.com/VigneshDhakshnamoorthy/KMDV-Selenium/tree/main/src/test/resources/Properties"><i>First Time Auto Generate : browser.properties</i></a>
+	    <a href="/src/test/resources/Properties"><i>First Time Auto Generate : browser.properties</i></a>
 	</td>
 </tr>	
 <tr>
 	<td><img src="/src/main/resources/Images/folder.png" alt="folders" width="270" height="430"> </td> 
  	<td> 
 	   <b> src / test / resources / TestData </b><i><br>Excel<br>JSON<br>Others<br>Text<br></i>
-	    <a href="https://github.com/VigneshDhakshnamoorthy/KMDV-Selenium/tree/main/src/test/resources/TestData"><i>can store xlsx, json, txt, etc...</i></a> <hr>
+	    <a href="/src/test/resources/TestData"><i>can store xlsx, json, txt, etc...</i></a> <hr>
 	    <b>Report-Screenshot / ExtentReport</b> <br>
-	    <a href="https://github.com/VigneshDhakshnamoorthy/KMDV-Selenium/tree/main/Report-ScreenShot/ExtentReport"><i>Each Time Auto Generate : Extent.Html</i></a>  <hr>
+	    <a href="/Report-ScreenShot/ExtentReport"><i>Each Time Auto Generate : Extent.Html</i></a>  <hr>
 	    <b>Report-Screenshot / Screenshots</b> <i><br>Failed<br>Passed<br>Skipped<br></i>
-	    <a href="https://github.com/VigneshDhakshnamoorthy/KMDV-Selenium/tree/main/Report-ScreenShot/ScreenShots"><i>Passed - Manual , Failed - Auto , Skipped - Auto</i></a>
+	    <a href="/Report-ScreenShot/ScreenShots"><i>Passed - Manual , Failed - Auto , Skipped - Auto</i></a>
 		</td>
 </tr>
 
