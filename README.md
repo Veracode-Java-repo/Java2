@@ -1,0 +1,428 @@
+<a href="#"><h1 align="center">KMDV Automation Framework<br><img src="/src/main/resources/Images/framework.png" alt="build" ><br><p align="center"><img src="https://img.shields.io/badge/Java-v1.8-yellowgreen" alt="Java Version"/> <img src="https://img.shields.io/badge/Maven-v3.8-yellowgreen" alt="Maven Version"/> <img src="https://img.shields.io/badge/TestNG-v7.4.0-yellowgreen" alt="TestNG Version"/> <img src="https://img.shields.io/badge/Selenium-v4.1.0-yellowgreen" alt="Selenium Version"/> <img src="https://img.shields.io/badge/RestAssured-v4.4.0-yellowgreen" alt="RestAssured Version"/> <img src="https://img.shields.io/badge/ExtentReport-v5.0.9-yellowgreen" alt="ExtentReport Version"/><br><a href="https://github.com/VigneshDhakshnamoorthy/KMDV-Selenium/actions/workflows/maven.yml"><img src="https://github.com/VigneshDhakshnamoorthy/KMDV-Selenium/actions/workflows/maven.yml/badge.svg?branch=main" alt="Java CI with Maven"/></a></p></h1><h5><p align="center"><a href="https://www.linkedin.com/in/vigneshdhakshnamoorthy/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="Vignesh | LinkedIn" width="120px"/></a><br>✍️ : <a href="https://github.com/VigneshDhakshnamoorthy">Vignesh Dhakshnamoorthy</a> ( Senior Software Quality Analyst )<br>📧 : <a href="mailto:KMD.Vignesh@outlook.com">KMD.Vignesh@outlook.com</a> / <a href="mailto:VigneshDhakshnamoorthy@gmail.com">VigneshDhakshnamoorthy@gmail.com </a></a></p> </h5></a>
+	
+
+<hr>
+
+> <h5> <a href="https://github.com/VigneshDhakshnamoorthy/KMDV-Selenium/raw/main/KMDV%20Framework.jar"><img src="https://img.shields.io/badge/Download-KMDV%20Framework.jar-red" alt="Download JAR"/></a></h5>
+```java
+//download KMDVFramework.jar from above link and save
+Right Click Project > Build Path > Configure Build Path...
+Select Tab Libraries > Click Add External JARs...
+Select KMDVFramework.jar 
+// select from saved location
+```
+
+> #### 🤝 Dependencies
+
+```xml
+<dependency>
+	<groupId>org.testng</groupId>
+	<artifactId>testng</artifactId>
+	<version>7.4.0</version>
+</dependency>
+```
+
+<table>
+<tr>
+    <td><b>GroupId</b></td>
+    <td><b>ArtifactId</b></td>
+    <td><b>Version</b></td>
+  </tr>
+  <tr>
+    <td>org.testng</td>
+    <td>testng</td>
+    <td>7.4.0</td>
+  </tr>
+  <tr>
+    <td>org.seleniumhq.selenium</td>
+    <td>selenium-java</td>
+    <td>4.1.0</td>
+  </tr>
+  <tr>
+    <td>io.github.bonigarcia</td>
+    <td>webdrivermanager</td>
+    <td>5.0.3</td>
+  </tr>  
+  <tr>
+    <td>org.apache.poi</td>
+    <td>poi</td>
+    <td>4.1.2</td>
+  </tr>  
+  <tr>
+    <td>org.apache.poi</td>
+    <td>poi-ooxml</td>
+    <td>4.1.2</td>
+  </tr>  
+  <tr>
+    <td>com.aventstack</td>
+    <td>extentreports</td>
+    <td>5.0.9</td>
+  </tr>  
+  <tr>
+    <td>org.projectlombok</td>
+    <td>lombok</td>
+    <td>1.18.20</td>
+  </tr>  
+  
+  <tr>
+    <td>com.googlecode.json-simple</td>
+    <td>json-simple</td>
+    <td>1.1.1</td>
+  </tr>
+  <tr>
+    <td>javax.mail</td>
+    <td>mail</td>
+    <td>1.4.5</td>
+  </tr>
+  <tr>
+    <td>io.rest-assured</td>
+    <td>rest-assured</td>
+    <td>4.4.0</td>
+  </tr>
+  <tr>
+    <td>com.aventstack</td>
+    <td>extentreports-testng-adapter</td>
+    <td>1.2.2</td>
+  </tr>
+  <tr>
+    <td>org.bytedeco</td>
+    <td>javacv-platform</td>
+    <td>1.5.3</td>
+  </tr>
+</table>
+<hr>
+
+<a href="#"><h2 align="center">`API` Automation</h2></a>
+
+> <h4> TestCase : <a href="#">API</a></h4>
+
+```java
+public class demo extends TestBase {
+
+	@Author(Name = "Dhakshna")
+	@Test
+	public void demoAPI() {
+		String baseURI ="https://reqres.in/";
+		RestAPIUtil restAPI= RestAPI(baseURI);
+		restAPI.Log( restAPI.getStatusCode() );
+    }
+
+}
+```
+> <h4> Helper Methods : <a href="#">API</a></h4>
+
+```java
+restAPI.getStatusCode
+restAPI.getBody
+restAPI.getMethodName
+restAPI.Log
+restAPI.logC
+restAPI.logE
+restAPI.IntToString
+restAPI.StringToInt
+restAPI.StringEquals
+restAPI.Today
+restAPI.Yesterday
+restAPI.Tomorrow
+restAPI.localDate
+restAPI.toCharArray
+restAPI.getRandom
+```
+<hr>
+
+<a href="#"><h2 align="center">`WEB` Automation</h2></a>
+
+> #### browser.properties ( src / test / resources / Properties )
+```java
+BrowserName=chrome
+waitTime=15
+```
+
+<table> 
+
+<tr>
+ 	<th> Available Browsers </th> 
+	  <td>
+	    <a href="#chrome">chrome</a> <br>
+	    <a href="#Properties">firefox</a> <br>
+		<a href="#edge">edge</a> <br>
+	    <a href="#opera">opera</a> <br>
+	    <a href="#firefoxheadless">firefoxheadless</a> <br>
+	    <a href="#chromeheadless">chromeheadless</a> <br>
+	  </td>
+</tr>
+</table>
+
+> <h4> PageObject : <a href="#">WEB</a></h4>
+```java
+public class LoginPage extends PageBase {
+	
+	public LoginPage() {
+		super();
+	}
+
+	private By Username = By.id("user-name");
+	@FindBy(id = "password") private WebElement password;
+	@FindBy(id="login-button") private WebElement loginbutton;
+
+	public LoginPage Login() {
+		selenium.type(Username, "standard_user");
+		selenium.type(password, "secret_sauce");
+		selenium.click(loginbutton);
+		return this;
+	}
+```
+
+> <h4> TestCase : <a href="#">WEB</a></h4>
+```java
+public class demo extends TestBase {
+
+	@Author(Name = "Vignesh")
+	@Test
+	public void demoWEB() {
+		String webURL ="https://www.saucedemo.com/";
+		SeleniumUtil selenium = Selenium(webURL);
+		
+		new LoginPage().Login();
+		selenium.Log("Logged in successfully");
+    }
+
+}
+```
+> <h4> Helper Methods : <a href="#">WEB</a></h4>
+
+```java
+selenium.Log
+selenium.logConsole
+selenium.logExtent
+selenium.logList
+selenium.logCList
+selenium.logEList
+
+selenium.findBy_ClassName
+selenium.findBy_CssSelector
+selenium.findBy_ID
+selenium.findBy_LinkText
+selenium.findBy_Name
+selenium.findBy_PartialLinkText
+selenium.findBy_Xpath
+
+selenium.findAll_ClassName
+selenium.findAll_CssSelector
+selenium.findAll_ID
+selenium.findAll_LinkText
+selenium.findAll_Name
+selenium.findAll_PartialLinkText
+selenium.findAll_Xpath
+
+selenium.getElement
+selenium.getElements
+selenium.getList
+
+selenium.getBY
+selenium.refreshElement
+selenium.getLocatorString
+
+selenium.click
+selenium.type
+selenium.typeENTER
+selenium.typeTAB
+selenium.back
+selenium.clear
+selenium.clickList
+selenium.clickSleep
+selenium.forward
+selenium.getAttribute
+selenium.getCurrentUrl
+selenium.getDriver
+selenium.getLocation
+selenium.getMethodName
+selenium.getPageSource
+selenium.getText
+selenium.getTitle
+selenium.isDisplayed
+selenium.isEnabled
+selenium.isSelected
+selenium.maximize
+selenium.minimize
+selenium.navigateTo
+selenium.refresh
+selenium.screenHeight
+selenium.screenWidth
+selenium.windowDimension
+
+selenium.getDropDownSelectValue
+selenium.selectDropDown
+
+selenium.sleep
+selenium.sleepMilliSeconds
+selenium.waitDisplayed
+selenium.waitEnabled
+selenium.waitil_Alert
+selenium.waitil_Click
+selenium.waitPageLoad
+selenium.waitSelected
+
+selenium.elementScreenShot
+selenium.pageScreenShot
+
+selenium.defaultFrame
+selenium.parentFrame
+selenium.switchFrame
+selenium.getTabs
+selenium.switchTab
+selenium.countTabs
+selenium.currentTab
+
+selenium.acceptAlert
+selenium.dismissAlert
+selenium.getAlert
+selenium.textAlert
+selenium.typeAlert
+
+selenium.jsClick
+selenium.jsType
+selenium.scroll_XY
+selenium.scrollTo
+selenium.executeScript
+
+selenium.actionClick
+selenium.actionDOWN
+selenium.actionENTER
+selenium.actionESCAPE
+selenium.actionLEFT
+selenium.actionRETURN
+selenium.actionRIGHT
+selenium.actionTAB
+selenium.actionType
+selenium.actionUP
+selenium.contextClick
+selenium.doubleClick
+selenium.dragAndDrop
+
+selenium.mouseLeftClick
+selenium.mouseMove
+selenium.mouseRightClick
+selenium.moveTo
+selenium.robotBACKSPACE
+selenium.robotCOPY
+selenium.robotCUT
+selenium.robotDOWN
+selenium.robotENTER
+selenium.robotESCAPE
+selenium.robotLEFT
+selenium.robotPASTE
+selenium.robotRIGHT
+selenium.robotSELECT
+selenium.robotTAB
+selenium.robotUP
+
+selenium.countList
+selenium.compare
+selenium.IntToString
+selenium.getRandom
+selenium.localDate
+selenium.listContains
+selenium.StringEquals
+selenium.StringToInt
+selenium.toCharArray
+selenium.Today
+selenium.Tomorrow
+selenium.Yesterday
+```
+<hr>
+
+> #### 📁 Folders
+
+<table> 
+<tr>
+	  <td>
+	    <b>SuitesXML</b> <br>
+	    <a href="https://github.com/VigneshDhakshnamoorthy/KMDV-Selenium/tree/main/SuitesXML"><i>can store testRunner XML files </i></a>
+	</td>
+	<td>
+	    <b>src / test / resources / Properties</b> <br>
+	    <a href="https://github.com/VigneshDhakshnamoorthy/KMDV-Selenium/tree/main/src/test/resources/Properties"><i>First Time Auto Generate : browser.properties</i></a>
+	</td>
+</tr>	
+<tr>
+	<td><img src="/src/main/resources/Images/folder.png" alt="folders" width="270" height="430"> </td> 
+ 	<td> 
+	   <b> src / test / resources / TestData </b><i><br>Excel<br>JSON<br>Others<br>Text<br></i>
+	    <a href="https://github.com/VigneshDhakshnamoorthy/KMDV-Selenium/tree/main/src/test/resources/TestData"><i>can store xlsx, json, txt, etc...</i></a> <hr>
+	    <b>Report-Screenshot / ExtentReport</b> <br>
+	    <a href="https://github.com/VigneshDhakshnamoorthy/KMDV-Selenium/tree/main/Report-ScreenShot/ExtentReport"><i>Each Time Auto Generate : Extent.Html</i></a>  <hr>
+	    <b>Report-Screenshot / Screenshots</b> <i><br>Failed<br>Passed<br>Skipped<br></i>
+	    <a href="https://github.com/VigneshDhakshnamoorthy/KMDV-Selenium/tree/main/Report-ScreenShot/ScreenShots"><i>Passed - Manual , Failed - Auto , Skipped - Auto</i></a>
+		</td>
+</tr>
+
+</table>
+
+> #### SuiteXML
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="KMDV Automation" parallel="methods" thread-count="5">
+ 
+  <test name="KMDV Test">
+  	<classes>
+     	<class name="testCase.demo"></class>
+  	</classes>
+  </test>
+  
+</suite>
+```
+<hr>
+
+<a href="#"><h2 align="center">`Helper` Classes</h2></a>
+
+> <h4> Helper Class : <a href="/src/main/java/util/Data/ExcelUtil.java">ExcelUtil</a></h4>
+```java
+String path = Path.fileFromExcelTestData("sample.xlsx");
+ExcelUtil excelUtil = new ExcelUtil (path) ;
+```
+```java
+excelUtil.getCellDataByValue
+excelUtil.getFullExcelData
+excelUtil.getRowColNumbers
+excelUtil.getRowNumber
+excelUtil.getColumnNumber
+excelUtil.getRowCount
+excelUtil.getCellCount
+excelUtil.getCellDataByNum
+excelUtil.setCellData
+excelUtil.fillGreenColor
+excelUtil.fillRedColor
+```
+> <h4> Helper Class : <a href="/src/main/java/util/Data/JsonUtil.java">JsonUtil</a></h4>
+```java
+String path = Path.fileFromJsonTestData("sample.json");
+JsonUtil jsonUtil = new JsonUtil (path) ;
+```
+```java
+jsonUtil.getPojo
+jsonUtil.getObject
+jsonUtil.getValue
+jsonUtil.getKeys
+jsonUtil.getArray
+jsonUtil.getObjFromArray
+```
+> <h4> Helper Class : <a href="/src/main/java/util/Data/PropertiesUtil.java">PropertiesUtil</a></h4>
+```java
+String path = Path.fileFromProperties("sample.properties");
+PropertiesUtil propertiesUtil = new PropertiesUtil (path) ;
+```
+```java
+propertiesUtil.getValue
+propertiesUtil.getKeys
+```
+> <h4> Helper Class : <a href="/src/main/java/util/Data/TextUtil.java">TextUtil</a></h4>
+```java
+String path = Path.fileFromTextTestData("sample.txt");
+TextUtil textUtil = new TextUtil (path) ;
+```
+```java
+textUtil.readLines
+textUtil.writeLine
+```
