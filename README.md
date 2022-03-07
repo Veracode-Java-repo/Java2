@@ -4,20 +4,19 @@
 
 > <h5> <a href="https://github.com/VigneshDhakshnamoorthy/KMDV-Automation-Framework/raw/master/KMDV%20Framework.jar"><img src="https://img.shields.io/badge/Download-KMDV%20Framework.jar-red" alt="Download JAR"/></a></h5>
 ```java
-//download KMDVFramework.jar from above link and save
-Right Click Project > Build Path > Configure Build Path...
-Select Tab Libraries > Click Add External JARs...
-Select KMDVFramework.jar 
-// select from saved location
+//download KMDVFramework.jar from above link and save in Project folder
+//add that as a dependency
 ```
 
 > #### 🤝 Dependencies
 
 ```xml
 <dependency>
-	<groupId>org.testng</groupId>
-	<artifactId>testng</artifactId>
-	<version>7.4.0</version>
+	<groupId>KMDV-Automation-Framework</groupId>
+	<artifactId>KMDV-Automation-Framework</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<scope>system</scope>
+	<systemPath>${project.basedir}/KMDV Framework.jar</systemPath>
 </dependency>
 ```
 
