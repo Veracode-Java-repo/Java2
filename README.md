@@ -9,7 +9,7 @@
 ```
 
 > #### 🤝 Dependencies
-
+> <h5> <a href="#">KMDVFramework dependency</a></h5>
 ```xml
 <dependency>
 	<groupId>KMDV-Automation-Framework</groupId>
@@ -19,7 +19,7 @@
 	<systemPath>${project.basedir}/KMDV Framework.jar</systemPath>
 </dependency>
 ```
-
+> <h5> <a href="#">Other dependencies</a></h5>
 <table>
 <tr>
     <td><b>GroupId</b></td>
