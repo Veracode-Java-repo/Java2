@@ -12,9 +12,9 @@
 > <h5> <a href="#">KMDVFramework dependency</a></h5>
 ```xml
 <dependency>
-	<groupId>KMDV-Automation-Framework</groupId>
+	<groupId>org.KMDV</groupId>
 	<artifactId>KMDV-Automation-Framework</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.6</version>
 	<scope>system</scope>
 	<systemPath>${project.basedir}/KMDV Framework.jar</systemPath>
 </dependency>
