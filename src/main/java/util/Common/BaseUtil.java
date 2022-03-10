@@ -18,20 +18,12 @@ public class BaseUtil {
 	protected static Driver Driver;
 	protected static ScreenShot screenShot;
 	protected static String BrowserName;
+	protected static String BrowserStack;
 	protected static int waitTime;
 
 	protected static ThreadLocal<String> testType = new ThreadLocal<String>();
 
 	protected static ThreadLocal<SeleniumUtil> Selenium = new ThreadLocal<SeleniumUtil>();
-
-	protected static SeleniumUtil Selenium(String webURL, String AuthorName) {
-		Extent.StartExtentTest(getInfo(Reporter.getCurrentTestResult()));
-		testType.set("Selenium");
-		Driver = new Driver();
-		Selenium.set(new SeleniumUtil(Driver.getDriver(), Extent.getTestThread(), BrowserName, webURL, waitTime));
-		return Selenium.get();
-	}
-
 	protected static SeleniumUtil Selenium(String webURL) {
 		Extent.StartExtentTest(getInfo(Reporter.getCurrentTestResult()));
 		testType.set("Selenium");
@@ -40,15 +32,8 @@ public class BaseUtil {
 		return Selenium.get();
 	}
 
+	
 	protected static ThreadLocal<RestAPIUtil> RestAPI = new ThreadLocal<RestAPIUtil>();
-
-	protected static RestAPIUtil RestAPI(String baseURI, String AuthorName) {
-		Extent.StartExtentTest(getInfo(Reporter.getCurrentTestResult()));
-		testType.set("RestAPI");
-		RestAPI.set(new RestAPIUtil(baseURI, Extent.getTestThread()));
-		return RestAPI.get();
-	}
-
 	protected static RestAPIUtil RestAPI(String baseURI) {
 		Extent.StartExtentTest(getInfo(Reporter.getCurrentTestResult()));
 		testType.set("RestAPI");

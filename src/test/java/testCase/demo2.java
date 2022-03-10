@@ -1,6 +1,7 @@
 package testCase;
 
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import config.TestNG.Author;
@@ -13,7 +14,7 @@ public class demo2 extends TestBase {
 
 	@Author(Name = "Vignesh")
 	@Test()
-	public void saucedemo3() {
+	public void saucedemo2() {
 		String webURL = "https://www.saucedemo.com/";
 		SeleniumUtil selenium = Selenium(webURL);
 
@@ -34,6 +35,8 @@ public class demo2 extends TestBase {
 		new LoginPage().Login();
 		selenium.sleep(2);
 		selenium.pageScreenShot();
+		
+		Assert.assertTrue(true);
 	
 	}
 	

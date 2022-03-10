@@ -1,6 +1,9 @@
 package config.Capability;
 
 import java.io.File;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 
 import config.Report.ExtentReportManger;
@@ -19,6 +22,7 @@ public class ClassInit extends BaseUtil {
 		screenShot = new ScreenShot();
 		PropertiesUtil propUtil = new PropertiesUtil(Path.fileFromProperties("browser.properties"));
 		BrowserName = propUtil.getValue("BrowserName").toLowerCase();
+		BrowserStack = propUtil.getValue("BrowserStack").toLowerCase();
 		waitTime = Integer.parseInt(propUtil.getValue("waitTime"));
 		screenShot.cleanFolders();
 		Extent.StartExtentReport();
@@ -26,10 +30,22 @@ public class ClassInit extends BaseUtil {
 	}
 
 	public void AfterMethod(ITestResult result, String testType) {
-		if (result.getStatus() == ITestResult.FAILURE) {
+		if (result.getStatus() == ITestResult.SUCCESS) {
+			if(BrowserStack.equalsIgnoreCase("on")) {
+				markTestStatus("passed", "Passed : "+result.getName(), Selenium.get().getDriver());
+			}
+			
+		} else if (result.getStatus() == ITestResult.FAILURE) {
 			screenShot.ExtentFailShot(Selenium.get().getDriver(), result, Extent.getTestThread());
+			if(BrowserStack.equalsIgnoreCase("on")) {
+				markTestStatus("failed", "Failed : "+result.getThrowable(), Selenium.get().getDriver());
+			}
+			
 		} else if (result.getStatus() == ITestResult.SKIP) {
 			screenShot.ExtentSkipShot(Selenium.get().getDriver(), result, Extent.getTestThread());
+			if(BrowserStack.equalsIgnoreCase("on")) {
+				markTestStatus("failed", "Skipped : "+result.getThrowable(), Selenium.get().getDriver());
+			}
 		}
 
 		if (testType.equalsIgnoreCase("Selenium")) {
@@ -47,11 +63,6 @@ public class ClassInit extends BaseUtil {
 	public void AfterSuite() {
 		Extent.EndExtentReport();
 		System.out.println("\n===============================================\n\nTest Suite Completed");
-//		try {
-//			System.out.println(Jsoup.parse(new File(pathUtil.fileFromExtentReport("ExtentReport.html")), "UTF-8").toString());
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
 	}
 
 	public void dirCheck() {
@@ -123,4 +134,9 @@ public class ClassInit extends BaseUtil {
 		}
 
 	}
+	
+	public void markTestStatus(String status, String reason, WebDriver WEdriver) {
+	    final JavascriptExecutor jse = (JavascriptExecutor) WEdriver;
+	    jse.executeScript("browserstack_executor: {\"action\": \"setSessionStatus\", \"arguments\": {\"status\": \""+ status + "\", \"reason\": \"" + reason + "\"}}");
+	  }
 }
