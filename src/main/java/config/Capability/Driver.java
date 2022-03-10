@@ -87,11 +87,11 @@ public class Driver extends BaseUtil {
 				 
 			remoteWebDriver = new RemoteWebDriver(new URL(URL), caps);
 			} catch (Exception e) {
-				 if (USERNAME.isBlank() || USERNAME.isEmpty()) {
+				 if (USERNAME.isEmpty()) {
 					  System.out.println("BROWSERSTACK_USERNAME is Blank");
 				  }
 				  
-				 else if (ACCESS_KEY.isBlank() || ACCESS_KEY.isEmpty()) {
+				 else if (ACCESS_KEY.isEmpty()) {
 					  System.out.println("BROWSERSTACK_ACCESS_KEY is Blank");
 				  } else {
 						System.out.println("BROWSERSTACK_ERROR = Check Username / Password / OS / Device");
