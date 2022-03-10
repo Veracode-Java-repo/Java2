@@ -3,9 +3,9 @@
 <hr>
 
 > <h5> <a href="https://github.com/VigneshDhakshnamoorthy/KMDV-Automation-Framework/raw/master/KMDV%20Framework.jar"><img src="https://img.shields.io/badge/Download-KMDV%20Framework.jar-red" alt="Download JAR"/></a></h5>
-```java
-//download KMDVFramework.jar from above link and save in Project folder
-//add that as a dependency
+```python
+// download KMDVFramework.jar from above link and save in Project folder
+// add that as a dependency
 ```
 
 > #### 🤝 Dependencies
@@ -131,7 +131,7 @@ restAPI.getRandom
 <a href="#"><h2 align="center">`WEB` Automation</h2></a>
 
 > #### browser.properties ( src / test / resources / Properties )
-```java
+```properties
 BrowserName = chrome
 waitTime = 15
 BrowserStack = off
@@ -153,7 +153,7 @@ BrowserStack = off
 </table>
 
 > #### browserStack.properties ( src / test / resources / Properties )
-```java
+```properties
 USERNAME = 
 ACCESS_KEY = 
 
