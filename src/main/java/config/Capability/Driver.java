@@ -69,9 +69,9 @@ public class Driver extends BaseUtil {
 
 	public RemoteWebDriver browserStackDriver() {
 		PropertiesUtil propertiesUtil = new PropertiesUtil (Path.fileFromProperties("browserStack.properties")) ;
-		  final String USERNAME = propertiesUtil.getValue("USERNAME");
-		  final String ACCESS_KEY = propertiesUtil.getValue("ACCESS_KEY");
-		  final String URL = "https://" + USERNAME + ":" + ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
+		  String USERNAME = propertiesUtil.getValue("USERNAME");
+		  String ACCESS_KEY = propertiesUtil.getValue("ACCESS_KEY");
+		  String URL = "https://" + USERNAME + ":" + ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
 		  RemoteWebDriver remoteWebDriver = null;
 
 		 
