@@ -132,14 +132,15 @@ restAPI.getRandom
 
 > #### browser.properties ( src / test / resources / Properties )
 ```java
-BrowserName=chrome
-waitTime=15
+BrowserName = chrome
+waitTime = 15
+BrowserStack = off
 ```
 
 <table> 
 
 <tr>
- 	<th> Available Browsers </th> 
+ 	<th> Local Browsers </th> 
 	  <td>
 	    <a href="#chrome">chrome</a> <br>
 	    <a href="#Properties">firefox</a> <br>
@@ -150,6 +151,19 @@ waitTime=15
 	  </td>
 </tr>
 </table>
+
+> #### browserStack.properties ( src / test / resources / Properties )
+```java
+USERNAME = 
+ACCESS_KEY = 
+
+os = Windows
+os_version = 10
+
+browser = Chrome
+browser_version = latest
+```
+<h1></h1>
 
 > <h4> PageObject : <a href="#">WEB</a></h4>
 ```java
