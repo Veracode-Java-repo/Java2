@@ -68,13 +68,9 @@ public class Driver extends BaseUtil {
 	}
 
 	public RemoteWebDriver browserStackDriver() {
-		PropertiesUtil propertiesUtil = new PropertiesUtil (Path.fileFromProperties("browserStack.properties")) ;
-		  String USERNAME = propertiesUtil.getValue("USERNAME");
-		  String ACCESS_KEY = propertiesUtil.getValue("ACCESS_KEY");
-		  String URL = "https://" + USERNAME + ":" + ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
-		  RemoteWebDriver remoteWebDriver = null;
-
-		 
+			PropertiesUtil propertiesUtil = new PropertiesUtil (Path.fileFromProperties("browserStack.properties")) ;
+			RemoteWebDriver remoteWebDriver = null;
+			String USERNAME = null,ACCESS_KEY = null;
 		  
 		  DesiredCapabilities caps = new DesiredCapabilities();
 		    caps.setCapability("os", propertiesUtil.getValue("os"));
@@ -85,6 +81,10 @@ public class Driver extends BaseUtil {
 		    caps.setCapability("name", Reporter.getCurrentTestResult().getName()); 
 		    caps.setCapability("build", Reporter.getCurrentTestResult().getTestClass().getName()); 
 		    try {
+		    	USERNAME = propertiesUtil.getValue("USERNAME");
+				ACCESS_KEY = propertiesUtil.getValue("ACCESS_KEY");
+				String URL = "https://" + USERNAME + ":" + ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
+				 
 			remoteWebDriver = new RemoteWebDriver(new URL(URL), caps);
 			} catch (Exception e) {
 				 if (USERNAME.isBlank() || USERNAME.isEmpty()) {
