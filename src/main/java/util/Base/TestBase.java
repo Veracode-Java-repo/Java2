@@ -22,7 +22,9 @@ public class TestBase extends BaseUtil {
 
 	@AfterMethod(alwaysRun = true)
 	public void quitBrowser(ITestResult result) {
+		if(testType.get()!=null) {
 		classInit.AfterMethod(result, testType.get());
+		}
 	}
 
 	@AfterSuite(alwaysRun = true)
