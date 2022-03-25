@@ -19,7 +19,7 @@
 	<systemPath>${project.basedir}/KMDV Framework.jar</systemPath>
 </dependency>
 ```
-> <h5> <a href="#">Other dependencies</a></h5>
+> <h5> <a href="/pom.xml">Other dependencies (Link)</a></h5>
 <table>
 <tr>
     <td><b>GroupId</b></td>
