@@ -932,6 +932,24 @@ public class SeleniumUtil {
 		return flag;
 
 	}
+	
+	public Boolean executeScript(String Script,WebElement ele) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Boolean flag = false;
+
+		for (int i = 1; i <= waitTime * 1000; i++) {
+			try {
+				js.executeScript(Script,ele);
+				flag = true;
+				break;
+			} catch (Exception e) {
+				sleepMilliSeconds(1);
+			}
+		}
+		Assert.assertTrue(flag);
+		return flag;
+
+	}
 
 	public Boolean scrollTo(WebElement ele) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
