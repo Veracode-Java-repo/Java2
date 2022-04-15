@@ -18,6 +18,7 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.Point;
+import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -71,28 +72,28 @@ public class SeleniumUtil {
 		return testNAme;
 	}
 
-	public void Log(Object stringMessage) {
-		logConsole(stringMessage.toString());
-		logExtent(stringMessage.toString());
+	public void Log(Object logMessage) {
+		logConsole(logMessage.toString());
+		logExtent(logMessage.toString());
 	}
 
-	public void Log(Object[] stringMessage) {
-		logConsole(Arrays.toString(stringMessage));
-		logExtent(Arrays.toString(stringMessage));
+	public void Log(Object[] logMessage) {
+		logConsole(Arrays.toString(logMessage));
+		logExtent(Arrays.toString(logMessage));
 	}
 	
-	public void logConsole(Object stringMessage) {
-		System.out.println(stringMessage.toString());
+	public void logConsole(Object logMessage) {
+		System.out.println(logMessage.toString());
 	}
-	public void logConsole(Object[] stringMessage) {
-		System.out.println(Arrays.toString(stringMessage));
+	public void logConsole(Object[] logMessage) {
+		System.out.println(Arrays.toString(logMessage));
 	}
 
-	public void logExtent(Object stringMessage) {
-		Etest.pass(stringMessage.toString());
+	public void logExtent(Object logMessage) {
+		Etest.pass(logMessage.toString());
 	}
-	public void logExtent(Object[] stringMessage) {
-		Etest.pass(Arrays.toString(stringMessage));
+	public void logExtent(Object[] logMessage) {
+		Etest.pass(Arrays.toString(logMessage));
 	}
 
 	public void logList(List<WebElement> ListWebelement) {
@@ -369,6 +370,10 @@ public class SeleniumUtil {
 	public WebElement findBy_ClassName(String className) {
 		return getElement(By.className(className));
 	}
+	
+	public WebElement findBy_TagName(String tagName) {
+		return getElement(By.tagName(tagName));
+	}
 
 	public enum locatorType {
 		XPATH, ID, LINKTEXT, CSSSELECTOR, NAME, PARTIALLINKTEXT, CLASSNAME
@@ -400,6 +405,9 @@ public class SeleniumUtil {
 
 	public List<WebElement> findAll_ClassName(String className) {
 		return getElements(By.className(className));
+	}
+	public List<WebElement> findAll_TagName(String tagName) {
+		return getElements(By.tagName(tagName));
 	}
 
 	public By getBY(WebElement ele) {
@@ -454,6 +462,19 @@ public class SeleniumUtil {
 		return by.toString().split(": ");
 
 	}
+	
+	public SearchContext getShadowRoot(WebElement ele) {
+		return ele.getShadowRoot();
+	}
+	
+	public SearchContext getShadowRoot(By by) {
+		return getElement(by).getShadowRoot();
+	}
+	
+	public WebElement getShadowContent(By shadowHost, By shadowContent) {
+		return getElement(shadowHost).getShadowRoot().findElement(shadowContent);
+	}
+	
 	public boolean isDisplayed(By by) {
 		return driver.findElement(by).isDisplayed();
 	}
