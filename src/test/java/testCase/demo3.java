@@ -43,4 +43,6 @@ public class demo3 extends TestBase {
 		System.out.println(elements.size());
 		System.out.println(Reporter.getCurrentTestResult().getMethod().getConstructorOrMethod().getMethod().getAnnotation(TestID.class).Name().toString());
 		}
+	
+	
 	}

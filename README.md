@@ -432,6 +432,7 @@ PropertiesUtil propertiesUtil = new PropertiesUtil (path) ;
 ```java
 propertiesUtil.getValue
 propertiesUtil.getKeys
+propertiesUtil.getMAP
 ```
 > <h4> Helper Class : <a href="/src/main/java/util/Data/TextUtil.java">TextUtil</a></h4>
 ```java

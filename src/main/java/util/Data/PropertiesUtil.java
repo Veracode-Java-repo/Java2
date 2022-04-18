@@ -3,6 +3,7 @@ package util.Data;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.HashMap;
 import java.util.Properties;
 import java.util.Set;
 
@@ -72,5 +73,15 @@ public class PropertiesUtil extends BaseUtil {
 
 	public Set<Object> getKeys() {
 		return p.keySet();
+	}
+	
+	public HashMap<String, String> getMAP() {
+	    HashMap<String, String> keyVal = new HashMap<>();
+		Set<Object> keys = getKeys();
+		
+		for ( Object ke : keys) {
+			keyVal.put(ke.toString(), getValue(ke.toString()));
+		}
+		return keyVal;
 	}
 }
