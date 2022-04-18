@@ -227,6 +227,9 @@ selenium.findAll_Name
 selenium.findAll_PartialLinkText
 selenium.findAll_Xpath
 
+selenium.getShadowRoot
+selenium.getShadowContent
+
 selenium.getElement
 selenium.getElements
 selenium.getList
@@ -294,8 +297,9 @@ selenium.typeAlert
 
 selenium.jsClick
 selenium.jsType
-selenium.scroll_XY
-selenium.scrollTo
+selenium.scrollTO_XY
+selenium.scrollBY_XY
+selenium.scrollIntoView
 selenium.executeScript
 
 selenium.actionClick

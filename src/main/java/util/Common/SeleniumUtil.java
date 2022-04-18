@@ -972,7 +972,7 @@ public class SeleniumUtil {
 
 	}
 
-	public Boolean scrollTo(WebElement ele) {
+	public Boolean scrollIntoView(WebElement ele) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Boolean flag = false;
 
@@ -990,12 +990,12 @@ public class SeleniumUtil {
 		return flag;
 	}
 
-	public Boolean scrollTo(By by) {
+	public Boolean scrollIntoView(By by) {
 		WebElement ele = getElement(by);
-		return scrollTo(ele);
+		return scrollIntoView(ele);
 	}
 
-	public Boolean scroll_XY(int x, int y) {
+	public Boolean scrollTO_XY(int x, int y) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Boolean flag = false;
 
@@ -1014,22 +1014,57 @@ public class SeleniumUtil {
 		return flag;
 	}
 
-	public Boolean scroll_XY(Point location) {
+	public Boolean scrollTO_XY(Point location) {
 		int x = location.getX();
 		int y = location.getY();
-		return scroll_XY(x, y);
+		return scrollTO_XY(x, y);
 	}
 
-	public Boolean scroll_XY(WebElement ele) {
+	public Boolean scrollTO_XY(WebElement ele) {
 		Point location = getLocation(ele);
-		return scroll_XY(location);
+		return scrollTO_XY(location);
 	}
 
-	public Boolean scroll_XY(By by) {
+	public Boolean scrollTO_XY(By by) {
 		WebElement ele = getElement(by);
-		return scroll_XY(ele);
+		return scrollTO_XY(ele);
 	}
 
+	public Boolean scrollBY_XY(int x, int y) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Boolean flag = false;
+
+		for (int i = 1; i <= waitTime * 1000; i++) {
+			try {
+				for (int j = 1; j <= y; j += 6) {
+					js.executeScript("window.scrollBy("+ x +","+ j +")");
+				}
+				flag = true;
+				break;
+			} catch (Exception e) {
+				sleepMilliSeconds(1);
+			}
+		}
+		Assert.assertTrue(flag);
+		return flag;
+	}
+
+	public Boolean scrollBY_XY(Point location) {
+		int x = location.getX();
+		int y = location.getY();
+		return scrollBY_XY(x, y);
+	}
+
+	public Boolean scrollBY_XY(WebElement ele) {
+		Point location = getLocation(ele);
+		return scrollBY_XY(location);
+	}
+
+	public Boolean scrollBY_XY(By by) {
+		WebElement ele = getElement(by);
+		return scrollBY_XY(ele);
+	}
+	
 	public Boolean selectDropDown(WebElement ele, String VisibleText) {
 		Boolean flag = false;
 
