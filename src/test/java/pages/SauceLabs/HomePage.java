@@ -25,7 +25,7 @@ public class HomePage extends PageBase {
 
 	public HomePage AddProduct(String ProNam) {
 		WebElement productName = selenium.findBy_LinkText(ProNam);
-		selenium.scroll_XY(productName);
+		selenium.scrollBY_XY(productName);
 		selenium.sleep(1);
 		selenium.jsClick(productName);
 		selenium.Log(ProNam + " - Product Clicked");
