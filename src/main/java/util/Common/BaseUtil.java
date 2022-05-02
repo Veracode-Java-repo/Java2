@@ -41,7 +41,7 @@ public class BaseUtil {
 		return RestAPI.get();
 	}
 
-	public synchronized static String[] getInfo(ITestResult result) {
+	public static String[] getInfo(ITestResult result) {
 		String file = "<i class=\"fa fa-file-code-o\" aria-hidden=\"true\"></i> ";
 		String folder = " <i class=\"fa fa-folder-open-o\" aria-hidden=\"true\"></i> ";
 		String testcaseName = result.getName();
