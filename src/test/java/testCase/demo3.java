@@ -39,8 +39,8 @@ public class demo3 extends TestBase {
 		String webURL = "https://money.rediff.com/gainers";
 		SeleniumUtil selenium = Selenium(webURL);
 		selenium.Log(selenium.getTitle());
-		List<WebElement> elements = selenium.getElements(By.xpath("//table[@class='dataTable']/tbody/tr"));
-		System.out.println(elements.size());
+		List<WebElement> elements = selenium.getElements(By.xpath("//table[@class='dataTable']/tbody/tr/td[1]/a"));
+		selenium.logList(elements);
 		System.out.println(Reporter.getCurrentTestResult().getMethod().getConstructorOrMethod().getMethod().getAnnotation(TestID.class).Name().toString());
 		}
 	

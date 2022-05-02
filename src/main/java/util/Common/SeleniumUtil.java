@@ -49,7 +49,7 @@ public class SeleniumUtil {
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
 		driver.get(webUrl);
-		logExtent(getBrowserImage(BrowserName) + " "+webUrl+" "+ getBrowserImage(BrowserName));
+		logExtent(getBrowserImage(BrowserName) + "  "+webUrl+"  "+ getBrowserImage(BrowserName));
 	}
 	
 	public String getBrowserImage(String BrowserName) {
@@ -73,13 +73,13 @@ public class SeleniumUtil {
 	}
 
 	public void Log(Object logMessage) {
-		logConsole(logMessage.toString());
-		logExtent(logMessage.toString());
+		logConsole(logMessage);
+		logExtent(logMessage);
 	}
 
 	public void Log(Object[] logMessage) {
-		logConsole(Arrays.toString(logMessage));
-		logExtent(Arrays.toString(logMessage));
+		logConsole(logMessage);
+		logExtent(logMessage);
 	}
 	
 	public void logConsole(Object logMessage) {
@@ -97,28 +97,28 @@ public class SeleniumUtil {
 	}
 
 	public void logList(List<WebElement> ListWebelement) {
-		Log(getList(ListWebelement));
+		Log(getList(ListWebelement).toArray());
 	}
 
 	public void logList(By by) {
-		Log(getList(by));
+		Log(getList(by).toArray());
 	}
 
 	public void logCList(List<WebElement> ListWebelement) {
-		logConsole(getList(ListWebelement));
+		logConsole(getList(ListWebelement).toArray());
 	}
 
 	public void logCList(By by) {
-		logConsole(getList(by));
+		logConsole(getList(by).toArray());
 	}
 	
 	public void logEList(List<WebElement> ListWebelement) {
-		logExtent(getList(ListWebelement));
+		logExtent(getList(ListWebelement).toArray());
 
 	}
 
 	public void logEList(By by) {
-		logExtent(getList(by));
+		logExtent(getList(by).toArray());
 
 	}
 
@@ -1922,5 +1922,4 @@ public class SeleniumUtil {
 	public boolean StringEquals(String value1, String value2) {
 		return value1.equalsIgnoreCase(value2);
 	}
-
 }
