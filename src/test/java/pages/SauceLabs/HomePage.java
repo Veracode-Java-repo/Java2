@@ -30,7 +30,7 @@ public class HomePage extends PageBase {
 		selenium.jsClick(productName);
 		selenium.Log(ProNam + " - Product Clicked");
 		selenium.sleep(1);
-		selenium.actionClick(AddCart);
+		selenium.actionClick(selenium.waitUNtil().elementToBeClickable(AddCart));
 		selenium.Log(ProNam + " - AddCart Button Clicked");
 		selenium.sleep(1);
 		selenium.actionClick(Back);

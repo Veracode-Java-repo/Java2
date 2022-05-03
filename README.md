@@ -269,12 +269,11 @@ selenium.windowDimension
 selenium.getDropDownSelectValue
 selenium.selectDropDown
 
+selenium.waitUNtil(44Sub WebdriverWait methods)
 selenium.sleep
 selenium.sleepMilliSeconds
 selenium.waitDisplayed
 selenium.waitEnabled
-selenium.waitil_Alert
-selenium.waitil_Click
 selenium.waitPageLoad
 selenium.waitSelected
 

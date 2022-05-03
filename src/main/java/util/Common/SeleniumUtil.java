@@ -22,9 +22,7 @@ import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
 
@@ -601,20 +599,11 @@ public class SeleniumUtil {
 		return flag;
 	}
 
-	public WebElement waitil_Click(By by) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(waitTime));
-		return wait.until(ExpectedConditions.elementToBeClickable(by));
+	public WaitUtil waitUNtil() {
+		return new WaitUtil (driver,waitTime,1);
+		
 	}
 
-	public WebElement waitil_Click(WebElement webElement) {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(waitTime));
-		return wait.until(ExpectedConditions.elementToBeClickable(webElement));
-	}
-
-	public Alert waitil_Alert() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(waitTime));
-		return wait.until(ExpectedConditions.alertIsPresent());
-	}
 
 	public String getText(WebElement ele) {
 		String getText = null;
