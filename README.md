@@ -269,7 +269,6 @@ selenium.windowDimension
 selenium.getDropDownSelectValue
 selenium.selectDropDown
 
-selenium.waitUNtil(44Sub WebdriverWait methods)
 selenium.sleep
 selenium.sleepMilliSeconds
 selenium.waitDisplayed
@@ -344,6 +343,9 @@ selenium.toCharArray
 selenium.Today
 selenium.Tomorrow
 selenium.Yesterday
+
+selenium.waitUNtil().alertIsPresent
+
 ```
 <hr>
 
