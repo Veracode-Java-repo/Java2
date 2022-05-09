@@ -924,6 +924,25 @@ public class SeleniumUtil {
 		WebElement ele = getElement(by);
 		return jsType(ele, Value);
 	}
+	
+	public Boolean setAttribute(WebElement ele,String Attribute, String Value) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Boolean flag = false;
+
+		for (int i = 1; i <= waitTime * 1000; i++) {
+			try {
+				js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2]);", ele, Attribute, Value);
+				flag = true;
+				break;
+			} catch (Exception e) {
+				sleepMilliSeconds(1);
+			}
+		}
+		Assert.assertTrue(flag);
+		return flag;
+
+	}
+	
 
 	public Boolean executeScript(String Script) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
