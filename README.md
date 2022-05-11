@@ -29,27 +29,27 @@
   <tr>
     <td>org.testng</td>
     <td>testng</td>
-    <td>7.4.0</td>
+    <td>7.5</td>
   </tr>
   <tr>
     <td>org.seleniumhq.selenium</td>
     <td>selenium-java</td>
-    <td>4.1.0</td>
+    <td>4.1.1</td>
   </tr>
   <tr>
     <td>io.github.bonigarcia</td>
     <td>webdrivermanager</td>
-    <td>5.0.3</td>
+    <td>5.1.1</td>
   </tr>  
   <tr>
     <td>org.apache.poi</td>
     <td>poi</td>
-    <td>4.1.2</td>
+    <td>5.2.2</td>
   </tr>  
   <tr>
     <td>org.apache.poi</td>
     <td>poi-ooxml</td>
-    <td>4.1.2</td>
+    <td>5.2.2</td>
   </tr>  
   <tr>
     <td>com.aventstack</td>
@@ -59,7 +59,7 @@
   <tr>
     <td>org.projectlombok</td>
     <td>lombok</td>
-    <td>1.18.20</td>
+    <td>1.18.24</td>
   </tr>  
   
   <tr>
@@ -75,7 +75,7 @@
   <tr>
     <td>io.rest-assured</td>
     <td>rest-assured</td>
-    <td>4.4.0</td>
+    <td>5.0.1</td>
   </tr>
   <tr>
     <td>com.aventstack</td>
