@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.ElementNotVisibleException;
+import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.NoSuchFrameException;
 import org.openqa.selenium.StaleElementReferenceException;
@@ -22,7 +22,7 @@ public class WaitUtil {
 		        .withTimeout(Duration.ofSeconds(timeOutInSeconds))
 		        .pollingEvery(Duration.ofSeconds(pollingEveryInMiliSec))
 		        .ignoring(NoSuchElementException.class)
-		        .ignoring(ElementNotVisibleException.class)
+		        .ignoring(ElementNotInteractableException.class)
 		        .ignoring(StaleElementReferenceException.class)
 		        .ignoring(NoSuchFrameException.class);
 	}
