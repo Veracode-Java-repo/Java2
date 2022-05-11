@@ -3,12 +3,8 @@ package config.Capability;
 import java.net.URL;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Reporter;
@@ -27,33 +23,16 @@ public class Driver extends BaseUtil {
 				dov = browserStackDriver();
 			}
 			else {
-				if (BrowserName.equalsIgnoreCase("firefox")) {
-					WebDriverManager.firefoxdriver().setup();
-					dov = new FirefoxDriver();
-				} else if (BrowserName.equalsIgnoreCase("chrome")) {
-					WebDriverManager.chromedriver().setup();
-					dov = new ChromeDriver();
-				} else if (BrowserName.equalsIgnoreCase("edge")) {
-					WebDriverManager.edgedriver().setup();
-					dov = new EdgeDriver();
-				} else if (BrowserName.equalsIgnoreCase("opera")) {
-					WebDriverManager.operadriver().setup();
-					dov = new OperaDriver();
-				} else if (BrowserName.equalsIgnoreCase("firefoxheadless")) {
-					FirefoxOptions firefoxOptions = new FirefoxOptions();
-					firefoxOptions.addArguments("--headless");
-					WebDriverManager.firefoxdriver().setup();
-					dov = new FirefoxDriver(firefoxOptions);
-				} else if (BrowserName.equalsIgnoreCase("chromeheadless")) {
-					ChromeOptions chromeOptions = new ChromeOptions();
-					chromeOptions.addArguments("--headless");
-					WebDriverManager.chromedriver().setup();
-					dov = new ChromeDriver(chromeOptions);
-				} else {
-					System.out.println("Update Proper BrowserName in File");
-				}
-			}
-
+				  switch(BrowserName.toLowerCase()){ 
+				  case "firefox" :dov = WebDriverManager.firefoxdriver().create();break;
+				  case "chrome" :dov = WebDriverManager.chromedriver().create();break;
+				  case "edge" :dov = WebDriverManager.edgedriver().create();break;
+				  case "opera" :dov = WebDriverManager.operadriver().create();break;
+				  case "safari" :dov = WebDriverManager.safaridriver().create();break;
+				  case "firefoxheadless" :FirefoxOptions firefoxOptions = new FirefoxOptions();firefoxOptions.setHeadless(true);dov = WebDriverManager.firefoxdriver().capabilities(firefoxOptions).create();break;
+				  case "chromeheadless" :ChromeOptions chromeOptions = new ChromeOptions();chromeOptions.setHeadless(true);dov = WebDriverManager.chromedriver().capabilities(chromeOptions).create();break;
+				  default:System.out.println("Update Proper BrowserName in File");
+				  }}
 			return dov;
 		}
 	};
