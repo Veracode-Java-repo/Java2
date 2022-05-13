@@ -47,19 +47,20 @@ public class SeleniumUtil {
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
 		driver.get(webUrl);
-		logExtent(getBrowserImage(BrowserName) + "  "+webUrl+"  "+ getBrowserImage(BrowserName));
+		logExtent(getBrowserImage(BrowserName) + "  " + webUrl + "  " + getBrowserImage(BrowserName));
 	}
-	
+
 	public String getBrowserImage(String BrowserName) {
-		  switch (BrowserName) {
-          case "chrome": return "<i class=\"fa fa-chrome\" aria-hidden=\"true\" /i>";
-          case "edge": return "<i class=\"fa fa-edge\" aria-hidden=\"true\" /i>";
-          case "firefox": return "<i class=\"fa fa-firefox\" aria-hidden=\"true\" /i>";
-          case "opera": return "<i class=\"fa fa-opera\" aria-hidden=\"true\" /i>";
-          case "chromeheadless": return "<i class=\"fa fa-chrome\" aria-hidden=\"true\" /i>";
-          case "firefoxheadless": return "<i class=\"fa fa-firefox\" aria-hidden=\"true\" /i>";
-		  }
-		  return BrowserName;
+		switch (BrowserName) {
+		case "chrome": return "<i class=\"fa fa-chrome\" aria-hidden=\"true\" /i>";
+		case "edge": return "<i class=\"fa fa-edge\" aria-hidden=\"true\" /i>";
+		case "firefox": return "<i class=\"fa fa-firefox\" aria-hidden=\"true\" /i>";
+		case "opera": return "<i class=\"fa fa-opera\" aria-hidden=\"true\" /i>";
+		case "safari": return "<i class=\"fa fa-safari\" aria-hidden=\"true\" /i>";
+		case "chromeheadless": return "<i class=\"fa fa-chrome\" aria-hidden=\"true\" /i>";
+		case "firefoxheadless": return "<i class=\"fa fa-firefox\" aria-hidden=\"true\" /i>";
+		}
+		return BrowserName;
 	}
 
 	public WebDriver getDriver() {
@@ -79,10 +80,11 @@ public class SeleniumUtil {
 		logConsole(logMessage);
 		logExtent(logMessage);
 	}
-	
+
 	public void logConsole(Object logMessage) {
 		System.out.println(logMessage.toString());
 	}
+
 	public void logConsole(Object[] logMessage) {
 		System.out.println(Arrays.toString(logMessage));
 	}
@@ -90,6 +92,7 @@ public class SeleniumUtil {
 	public void logExtent(Object logMessage) {
 		Etest.pass(logMessage.toString());
 	}
+
 	public void logExtent(Object[] logMessage) {
 		Etest.pass(Arrays.toString(logMessage));
 	}
@@ -109,7 +112,7 @@ public class SeleniumUtil {
 	public void logCList(By by) {
 		logConsole(getList(by).toArray());
 	}
-	
+
 	public void logEList(List<WebElement> ListWebelement) {
 		logExtent(getList(ListWebelement).toArray());
 
@@ -368,7 +371,7 @@ public class SeleniumUtil {
 	public WebElement findBy_ClassName(String className) {
 		return getElement(By.className(className));
 	}
-	
+
 	public WebElement findBy_TagName(String tagName) {
 		return getElement(By.tagName(tagName));
 	}
@@ -404,75 +407,76 @@ public class SeleniumUtil {
 	public List<WebElement> findAll_ClassName(String className) {
 		return getElements(By.className(className));
 	}
+
 	public List<WebElement> findAll_TagName(String tagName) {
 		return getElements(By.tagName(tagName));
 	}
 
 	public By getBY(WebElement ele) {
-		 By by = null;
-	        String[] split = (ele.toString().split("->")[1].replaceFirst("(?s)(.*)\\]", "$1" + "")).split(":");
-	        String selector = split[0].trim();
-	        String value = split[1].trim();
+		By by = null;
+		String[] split = (ele.toString().split("->")[1].replaceFirst("(?s)(.*)\\]", "$1" + "")).split(":");
+		String selector = split[0].trim();
+		String value = split[1].trim();
 
-	        switch (selector) {
-	            case "id":
-	                by = By.id(value);
-	                break;
-	            case "className":
-	                by = By.className(value);
-	                break;
-	            case "tagName":
-	                by = By.tagName(value);
-	                break;
-	            case "xpath":
-	                by = By.xpath(value);
-	                break;
-	            case "cssSelector":
-	                by = By.cssSelector(value);
-	                break;
-	            case "linkText":
-	                by = By.linkText(value);
-	                break;
-	            case "name":
-	                by = By.name(value);
-	                break;
-	            case "partialLinkText":
-	                by = By.partialLinkText(value);
-	                break;
-	            default:
-	                throw new IllegalStateException("locator : " + selector + " not found!!!");
-	        }
-	        return by;
+		switch (selector) {
+		case "id":
+			by = By.id(value);
+			break;
+		case "className":
+			by = By.className(value);
+			break;
+		case "tagName":
+			by = By.tagName(value);
+			break;
+		case "xpath":
+			by = By.xpath(value);
+			break;
+		case "cssSelector":
+			by = By.cssSelector(value);
+			break;
+		case "linkText":
+			by = By.linkText(value);
+			break;
+		case "name":
+			by = By.name(value);
+			break;
+		case "partialLinkText":
+			by = By.partialLinkText(value);
+			break;
+		default:
+			throw new IllegalStateException("locator : " + selector + " not found!!!");
+		}
+		return by;
 	}
-	
+
 	public WebElement refreshElement(WebElement ele) {
 		By by = getBY(ele);
 		return getElement(by);
 	}
-	
+
 	public String[] getLocatorString(WebElement ele) {
 		By by = getBY(ele);
 		return by.toString().split(": ");
 
 	}
-	
+
 	public String[] getLocatorString(By by) {
 		return by.toString().split(": ");
 
 	}
-	
+
 	public SearchContext getShadowRoot(WebElement ele) {
 		return ele.getShadowRoot();
 	}
-	
+
 	public SearchContext getShadowRoot(By by) {
 		return getElement(by).getShadowRoot();
 	}
-	
+
 	public WebElement getShadowContent(By shadowHost, By shadowContent) {
 		return getElement(shadowHost).getShadowRoot().findElement(shadowContent);
 	}
-	
+
 	public boolean isDisplayed(By by) {
 		return driver.findElement(by).isDisplayed();
 	}
@@ -600,10 +604,9 @@ public class SeleniumUtil {
 	}
 
 	public WaitUtil waitUNtil() {
-		return new WaitUtil (driver,waitTime,1);
-		
-	}
+		return new WaitUtil(driver, waitTime, 1);
 
+	}
 
 	public String getText(WebElement ele) {
 		String getText = null;
@@ -616,7 +619,7 @@ public class SeleniumUtil {
 				break;
 			} catch (Exception e) {
 				sleepMilliSeconds(1);
-				ele=refreshElement(ele);
+				ele = refreshElement(ele);
 			}
 		}
 		Assert.assertTrue(flag);
@@ -641,7 +644,7 @@ public class SeleniumUtil {
 				break;
 			} catch (Exception e) {
 				sleepMilliSeconds(1);
-				ele=refreshElement(ele);
+				ele = refreshElement(ele);
 			}
 		}
 		Assert.assertTrue(flag);
@@ -652,6 +655,24 @@ public class SeleniumUtil {
 	public String getAttribute(By by, String AttributeName) {
 		WebElement ele = getElement(by);
 		return getAttribute(ele, AttributeName);
+	}
+	
+	public Boolean setAttribute(WebElement ele, String Attribute, String Value) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Boolean flag = false;
+
+		for (int i = 1; i <= waitTime * 1000; i++) {
+			try {
+				js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2]);", ele, Attribute, Value);
+				flag = getAttribute(ele,Attribute).equalsIgnoreCase(Value);
+				break;
+			} catch (Exception e) {
+				sleepMilliSeconds(1);
+			}
+		}
+		Assert.assertTrue(flag);
+		return flag;
+
 	}
 
 	public Point getLocation(WebElement ele) {
@@ -666,7 +687,7 @@ public class SeleniumUtil {
 				break;
 			} catch (Exception e) {
 				sleepMilliSeconds(1);
-				ele=refreshElement(ele);
+				ele = refreshElement(ele);
 			}
 		}
 		Assert.assertTrue(flag);
@@ -689,7 +710,7 @@ public class SeleniumUtil {
 				break;
 			} catch (Exception e) {
 				sleepMilliSeconds(1);
-				ele=refreshElement(ele);
+				ele = refreshElement(ele);
 			}
 		}
 		Assert.assertTrue(flag);
@@ -729,7 +750,7 @@ public class SeleniumUtil {
 				break;
 			} catch (Exception e) {
 				sleepMilliSeconds(1);
-				ele=refreshElement(ele);
+				ele = refreshElement(ele);
 			}
 		}
 		Assert.assertTrue(flag);
@@ -751,7 +772,7 @@ public class SeleniumUtil {
 				break;
 			} catch (Exception e) {
 				sleepMilliSeconds(1);
-				ele=refreshElement(ele);
+				ele = refreshElement(ele);
 			}
 		}
 		Assert.assertTrue(flag);
@@ -763,23 +784,23 @@ public class SeleniumUtil {
 		WebElement ele = getElement(by);
 		return type(ele, Value);
 	}
-	
+
 	public Boolean typeENTER(WebElement ele, Object Value) {
-		return type(ele,Value.toString()+Keys.ENTER);
+		return type(ele, Value.toString() + Keys.ENTER);
 	}
 
 	public Boolean typeENTER(By by, Object Value) {
 		WebElement ele = getElement(by);
-		return type(ele,Value.toString()+Keys.ENTER);
+		return type(ele, Value.toString() + Keys.ENTER);
 	}
-	
+
 	public Boolean typeTAB(WebElement ele, Object Value) {
-		return type(ele,Value.toString()+Keys.TAB);
+		return type(ele, Value.toString() + Keys.TAB);
 	}
 
 	public Boolean typeTAB(By by, Object Value) {
 		WebElement ele = getElement(by);
-		return type(ele,Value.toString()+Keys.TAB);
+		return type(ele, Value.toString() + Keys.TAB);
 	}
 
 	public Boolean clickList(List<WebElement> ListWebelement, String ClickValue) {
@@ -888,7 +909,7 @@ public class SeleniumUtil {
 				break;
 			} catch (Exception e) {
 				sleepMilliSeconds(1);
-				ele=refreshElement(ele);
+				ele = refreshElement(ele);
 			}
 		}
 		Assert.assertTrue(flag);
@@ -912,7 +933,7 @@ public class SeleniumUtil {
 				break;
 			} catch (Exception e) {
 				sleepMilliSeconds(1);
-				ele=refreshElement(ele);
+				ele = refreshElement(ele);
 			}
 		}
 		Assert.assertTrue(flag);
@@ -924,25 +945,6 @@ public class SeleniumUtil {
 		WebElement ele = getElement(by);
 		return jsType(ele, Value);
 	}
-	
-	public Boolean setAttribute(WebElement ele,String Attribute, String Value) {
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		Boolean flag = false;
-
-		for (int i = 1; i <= waitTime * 1000; i++) {
-			try {
-				js.executeScript("arguments[0].setAttribute(arguments[1], arguments[2]);", ele, Attribute, Value);
-				flag = true;
-				break;
-			} catch (Exception e) {
-				sleepMilliSeconds(1);
-			}
-		}
-		Assert.assertTrue(flag);
-		return flag;
-
-	}
-	
 
 	public Boolean executeScript(String Script) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -961,14 +963,14 @@ public class SeleniumUtil {
 		return flag;
 
 	}
-	
-	public Boolean executeScript(String Script,WebElement ele) {
+
+	public Boolean executeScript(String Script, WebElement ele) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Boolean flag = false;
 
 		for (int i = 1; i <= waitTime * 1000; i++) {
 			try {
-				js.executeScript(Script,ele);
+				js.executeScript(Script, ele);
 				flag = true;
 				break;
 			} catch (Exception e) {
@@ -991,7 +993,7 @@ public class SeleniumUtil {
 				break;
 			} catch (Exception e) {
 				sleepMilliSeconds(1);
-				ele=refreshElement(ele);
+				ele = refreshElement(ele);
 			}
 		}
 		Assert.assertTrue(flag);
@@ -1045,7 +1047,7 @@ public class SeleniumUtil {
 		for (int i = 1; i <= waitTime * 1000; i++) {
 			try {
 				for (int j = 1; j <= y; j += 6) {
-					js.executeScript("window.scrollBy("+ x +","+ j +")");
+					js.executeScript("window.scrollBy(" + x + "," + j + ")");
 				}
 				flag = true;
 				break;
@@ -1072,7 +1074,7 @@ public class SeleniumUtil {
 		WebElement ele = getElement(by);
 		return scrollBY_XY(ele);
 	}
-	
+
 	public Boolean selectDropDown(WebElement ele, String VisibleText) {
 		Boolean flag = false;
 
@@ -1084,7 +1086,7 @@ public class SeleniumUtil {
 				break;
 			} catch (Exception e) {
 				sleepMilliSeconds(1);
-				ele=refreshElement(ele);
+				ele = refreshElement(ele);
 			}
 		}
 		Assert.assertTrue(flag);
@@ -1108,7 +1110,7 @@ public class SeleniumUtil {
 				break;
 			} catch (Exception e) {
 				sleepMilliSeconds(1);
-				ele=refreshElement(ele);
+				ele = refreshElement(ele);
 			}
 		}
 		Assert.assertTrue(flag);
@@ -1141,7 +1143,7 @@ public class SeleniumUtil {
 				break;
 			} catch (Exception e) {
 				sleepMilliSeconds(1);
-				ele=refreshElement(ele);
+				ele = refreshElement(ele);
 			}
 		}
 		Assert.assertTrue(flag);
@@ -1166,7 +1168,7 @@ public class SeleniumUtil {
 				break;
 			} catch (Exception e) {
 				sleepMilliSeconds(1);
-				ele=refreshElement(ele);
+				ele = refreshElement(ele);
 			}
 		}
 		Assert.assertTrue(flag);
@@ -1208,7 +1210,7 @@ public class SeleniumUtil {
 				break;
 			} catch (Exception e) {
 				sleepMilliSeconds(1);
-				ele=refreshElement(ele);
+				ele = refreshElement(ele);
 			}
 		}
 		Assert.assertTrue(flag);
@@ -1250,8 +1252,8 @@ public class SeleniumUtil {
 				break;
 			} catch (Exception e) {
 				sleepMilliSeconds(1);
-				source=refreshElement(source);
-				target=refreshElement(target);
+				source = refreshElement(source);
+				target = refreshElement(target);
 
 			}
 		}
@@ -1277,7 +1279,7 @@ public class SeleniumUtil {
 				break;
 			} catch (Exception e) {
 				sleepMilliSeconds(1);
-				ele=refreshElement(ele);
+				ele = refreshElement(ele);
 			}
 		}
 		Assert.assertTrue(flag);
@@ -1320,7 +1322,7 @@ public class SeleniumUtil {
 				break;
 			} catch (Exception e) {
 				sleepMilliSeconds(1);
-				ele=refreshElement(ele);
+				ele = refreshElement(ele);
 			}
 		}
 		Assert.assertTrue(flag);
