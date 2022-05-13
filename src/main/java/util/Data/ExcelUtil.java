@@ -154,13 +154,18 @@ public class ExcelUtil extends BaseUtil {
 		return data;
 	}
 
-	public void setCellData(String sheetName, int rownum, int colnum, String data) throws IOException {
+	public void setCellData(String sheetName, int rownum, int colnum, String data) {
 		File xlfile = new File(excelPath);
 		if (!xlfile.exists()) // If file not exists then create new file
 		{
 			xbook = new XSSFWorkbook();
-			fout = new FileOutputStream(excelPath);
-			xbook.write(fout);
+			try {
+				fout = new FileOutputStream(excelPath);
+				xbook.write(fout);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 
 		if (xbook.getSheetIndex(sheetName) == -1) // If sheet not exists then create new Sheet
@@ -174,14 +179,18 @@ public class ExcelUtil extends BaseUtil {
 
 		xcell = xrow.createCell(colnum);
 		xcell.setCellValue(data);
-		fout = new FileOutputStream(excelPath);
-		xbook.write(fout);
+		try {
+			fout = new FileOutputStream(excelPath);
+			xbook.write(fout);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		xbookClose();
 		finClose();
 		foutClose();
 	}
 
-	public void fillGreenColor(String sheetName, int rownum, int colnum) throws IOException {
+	public void fillGreenColor(String sheetName, int rownum, int colnum) {
 		xsheet = xbook.getSheet(sheetName);
 
 		xrow = xsheet.getRow(rownum);
@@ -193,13 +202,17 @@ public class ExcelUtil extends BaseUtil {
 		xstyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 
 		xcell.setCellStyle(xstyle);
-		xbook.write(fout);
+		try {
+			xbook.write(fout);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		xbookClose();
 		finClose();
 		foutClose();
 	}
 
-	public void fillRedColor(String sheetName, int rownum, int colnum) throws IOException {
+	public void fillRedColor(String sheetName, int rownum, int colnum) {
 		xsheet = xbook.getSheet(sheetName);
 		xrow = xsheet.getRow(rownum);
 		xcell = xrow.getCell(colnum);
@@ -210,7 +223,11 @@ public class ExcelUtil extends BaseUtil {
 		xstyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
 
 		xcell.setCellStyle(xstyle);
-		xbook.write(fout);
+		try {
+			xbook.write(fout);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		xbookClose();
 		finClose();
 		foutClose();
