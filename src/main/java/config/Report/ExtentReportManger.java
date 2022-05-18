@@ -13,7 +13,7 @@ public class ExtentReportManger extends BaseUtil {
 
 	public void StartExtentReport() {
 		Ereport = new ExtentReports();
-		Espark = new ExtentSparkReporter(Path.fileFromExtentReport("ExtentReport.html"));
+		Espark = new ExtentSparkReporter(pathRoot.fileFromExtentReport("ExtentReport.html"));
 		Espark.config().setDocumentTitle(Paths.get(System.getProperty("user.dir")).getFileName().toString());
 		Espark.config().setReportName("KMDV Automation Framework");
 		Espark.config().setTimelineEnabled(false);

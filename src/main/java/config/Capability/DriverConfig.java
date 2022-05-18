@@ -13,7 +13,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import util.Common.BaseUtil;
 import util.Data.PropertiesUtil;
 
-public class Driver extends BaseUtil {
+public class DriverConfig extends BaseUtil {
 
 	ThreadLocal<WebDriver> weDriver = new ThreadLocal<WebDriver>() {
 		@Override
@@ -47,7 +47,7 @@ public class Driver extends BaseUtil {
 	}
 
 	public RemoteWebDriver browserStackDriver() {
-		PropertiesUtil propertiesUtil = new PropertiesUtil (Path.fileFromProperties("browserStack.properties")) ;
+		PropertiesUtil propertiesUtil = new PropertiesUtil (pathRoot.fileFromProperties("browserStack.properties")) ;
 		  final String USERNAME = propertiesUtil.getValue("USERNAME");
 		  final String ACCESS_KEY = propertiesUtil.getValue("ACCESS_KEY");
 		  final String URL = "https://" + USERNAME + ":" + ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
@@ -75,7 +75,7 @@ public class Driver extends BaseUtil {
 
 				  }
 				  
-				System.out.println("FILE_LOCATION = "+Path.fileFromProperties("browserStack.properties"));
+				System.out.println("FILE_LOCATION = "+pathRoot.fileFromProperties("browserStack.properties"));
 				e.printStackTrace();
 			}
 		    return remoteWebDriver;

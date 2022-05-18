@@ -2,7 +2,7 @@ package config.Capability;
 
 import java.io.File;
 
-public class Path {
+public class PathConfig {
 	private File projectPathRoot = new File(System.getProperty("user.dir"));
 	private File resourcesMainRoot = new File(projectPathRoot, "src/main/resources");
 	private File imagesRoot = new File(resourcesMainRoot, "Images");

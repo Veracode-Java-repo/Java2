@@ -11,16 +11,16 @@ import config.Report.ScreenShot;
 import util.Common.BaseUtil;
 import util.Data.PropertiesUtil;
 
-public class ClassInit extends BaseUtil {
+public class ClassConfig extends BaseUtil {
 
 	public void BeforeSuite() {
 		System.out.println(
 				"\n===============================================\n\nTest Suite Started\n\n===============================================");
-		Path = new Path();
+		pathRoot = new PathConfig();
 		dirCheck();
 		Extent = new ExtentReportManger();
 		screenShot = new ScreenShot();
-		PropertiesUtil propUtil = new PropertiesUtil(Path.fileFromProperties("browser.properties"));
+		PropertiesUtil propUtil = new PropertiesUtil(pathRoot.fileFromProperties("browser.properties"));
 		BrowserName = propUtil.getValue("BrowserName").toLowerCase();
 		BrowserStack = propUtil.getValue("BrowserStack").toLowerCase();
 		waitTime = Integer.parseInt(propUtil.getValue("waitTime"));
@@ -67,68 +67,68 @@ public class ClassInit extends BaseUtil {
 
 	public void dirCheck() {
 		
-		File suitesFile = new File(Path.getSuitesXMLPath());
+		File suitesFile = new File(pathRoot.getSuitesXMLPath());
 		if (!suitesFile.isDirectory()) {
 			suitesFile.mkdir();
 		}
 		
-		File propFile = new File(Path.getPropertiesPath());
+		File propFile = new File(pathRoot.getPropertiesPath());
 		if (!propFile.isDirectory()) {
 			propFile.mkdir();
 		}
 
-		File testDataFile = new File(Path.getTestDataPath());
+		File testDataFile = new File(pathRoot.getTestDataPath());
 		if (!testDataFile.isDirectory()) {
 			testDataFile.mkdir();
 		}
 
-		File ExcelFile = new File(Path.getExcelTestDataPath());
+		File ExcelFile = new File(pathRoot.getExcelTestDataPath());
 		if (!ExcelFile.isDirectory()) {
 			ExcelFile.mkdir();
 		}
 
-		File JsonFile = new File(Path.getJsonTestDataPath());
+		File JsonFile = new File(pathRoot.getJsonTestDataPath());
 		if (!JsonFile.isDirectory()) {
 			JsonFile.mkdir();
 		}
 
-		File TextFile = new File(Path.getTextTestDataPath());
+		File TextFile = new File(pathRoot.getTextTestDataPath());
 		if (!TextFile.isDirectory()) {
 			TextFile.mkdir();
 		}
 		
 
-		File OtherFile = new File(Path.getOtherTestDataPath());
+		File OtherFile = new File(pathRoot.getOtherTestDataPath());
 		if (!OtherFile.isDirectory()) {
 			OtherFile.mkdir();
 		}
 
-		File reportscreenshotFile = new File(Path.getReportScreenShotPath());
+		File reportscreenshotFile = new File(pathRoot.getReportScreenShotPath());
 		if (!reportscreenshotFile.isDirectory()) {
 			reportscreenshotFile.mkdir();
 		}
 
-		File ExtentReportFile = new File(Path.getExtentReportPath());
+		File ExtentReportFile = new File(pathRoot.getExtentReportPath());
 		if (!ExtentReportFile.isDirectory()) {
 			ExtentReportFile.mkdir();
 		}
 
-		File screenshotFile = new File(Path.getScreenShotPath());
+		File screenshotFile = new File(pathRoot.getScreenShotPath());
 		if (!screenshotFile.isDirectory()) {
 			screenshotFile.mkdir();
 		}
 
-		File screenshotPassedFile = new File(Path.getPassedShotPath());
+		File screenshotPassedFile = new File(pathRoot.getPassedShotPath());
 		if (!screenshotPassedFile.isDirectory()) {
 			screenshotPassedFile.mkdir();
 		}
 
-		File screenshotFailedFile = new File(Path.getFailedShotPath());
+		File screenshotFailedFile = new File(pathRoot.getFailedShotPath());
 		if (!screenshotFailedFile.isDirectory()) {
 			screenshotFailedFile.mkdir();
 		}
 
-		File screenshotSkippedFile = new File(Path.getSkippedShotPath());
+		File screenshotSkippedFile = new File(pathRoot.getSkippedShotPath());
 		if (!screenshotSkippedFile.isDirectory()) {
 			screenshotSkippedFile.mkdir();
 		}

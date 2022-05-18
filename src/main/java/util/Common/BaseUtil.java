@@ -3,19 +3,19 @@ package util.Common;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 
-import config.Capability.ClassInit;
-import config.Capability.Driver;
-import config.Capability.Path;
+import config.Capability.ClassConfig;
+import config.Capability.DriverConfig;
+import config.Capability.PathConfig;
 import config.Report.ExtentReportManger;
 import config.Report.ScreenShot;
 import config.TestNG.Author;
 
 public class BaseUtil {
 
-	protected static ClassInit classInit;
-	protected static Path Path;
+	protected static ClassConfig classInit;
+	protected static PathConfig pathRoot;
 	protected static ExtentReportManger Extent;
-	protected static Driver Driver;
+	protected static DriverConfig Driver;
 	protected static ScreenShot screenShot;
 	protected static String BrowserName;
 	protected static String BrowserStack;
@@ -27,7 +27,7 @@ public class BaseUtil {
 	protected static SeleniumUtil Selenium(String webURL) {
 		Extent.StartExtentTest(getInfo(Reporter.getCurrentTestResult()));
 		testType.set("Selenium");
-		Driver = new Driver();
+		Driver = new DriverConfig();
 		Selenium.set(new SeleniumUtil(Driver.getDriver(), Extent.getTestThread(), BrowserName, webURL, waitTime));
 		return Selenium.get();
 	}

@@ -21,7 +21,7 @@ public class demo3 extends TestBase {
 		SeleniumUtil selenium = Selenium(webURL);
 		selenium.Log(selenium.getTitle());
 
-		JsonUtil jsonUtil = new JsonUtil(Path.fileFromJsonTestData("test.json"));
+		JsonUtil jsonUtil = new JsonUtil(pathRoot.fileFromJsonTestData("test.json"));
 		PojoJSON pojo = jsonUtil.getPojo(PojoJSON.class);
 		selenium.Log(pojo.getLastName());
 		pojo.setLastName("Dhakshna");

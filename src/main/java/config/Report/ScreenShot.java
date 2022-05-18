@@ -21,7 +21,7 @@ public class ScreenShot extends BaseUtil {
 	public void ExtentFailShot(WebDriver ScDriver, ITestResult result, ExtentTest Exetest) {
 		String Time = new java.util.Date().getTime() + "";
 
-		File screenShotLocation = new File(Path.fileFromFailedShot(result.getName() + "-" + Time + ".png"));
+		File screenShotLocation = new File(pathRoot.fileFromFailedShot(result.getName() + "-" + Time + ".png"));
 		try {
 			File screenShot = ((TakesScreenshot) ScDriver).getScreenshotAs(OutputType.FILE);
 			FileHandler.copy(screenShot, screenShotLocation);
@@ -39,7 +39,7 @@ public class ScreenShot extends BaseUtil {
 	public void ExtentSkipShot(WebDriver ScDriver, ITestResult result, ExtentTest Exetest) {
 		String Time = new java.util.Date().getTime() + "";
 
-		File screenShotLocation = new File(Path.fileFromSkippedShot(result.getName() + "-" + Time + ".png"));
+		File screenShotLocation = new File(pathRoot.fileFromSkippedShot(result.getName() + "-" + Time + ".png"));
 		try {
 			File screenShot = ((TakesScreenshot) ScDriver).getScreenshotAs(OutputType.FILE);
 			FileHandler.copy(screenShot, screenShotLocation);
@@ -57,7 +57,7 @@ public class ScreenShot extends BaseUtil {
 	public void ExtentPassShot(WebDriver ScDriver, ExtentTest Exetest, String tstName) {
 		String Time = new java.util.Date().getTime() + "";
 
-		File screenShotLocation = new File(Path.fileFromPassedShot(tstName + "-" + Time + ".png"));
+		File screenShotLocation = new File(pathRoot.fileFromPassedShot(tstName + "-" + Time + ".png"));
 		try {
 			File screenShot = ((TakesScreenshot) ScDriver).getScreenshotAs(OutputType.FILE);
 			FileHandler.copy(screenShot, screenShotLocation);
@@ -73,7 +73,7 @@ public class ScreenShot extends BaseUtil {
 		String Time = new java.util.Date().getTime() + "";
 
 		File screenShotLocation = new File(
-				Path.fileFromPassedShot(tstName + "-Element-" + ele.getText() + "-" + Time + ".png"));
+				pathRoot.fileFromPassedShot(tstName + "-Element-" + ele.getText() + "-" + Time + ".png"));
 		try {
 			File screenShot = ((TakesScreenshot) ele).getScreenshotAs(OutputType.FILE);
 			FileHandler.copy(screenShot, screenShotLocation);
@@ -86,7 +86,7 @@ public class ScreenShot extends BaseUtil {
 	}
 
 	public void deleteReportScreenShot() {
-		File mainFolder = new File(Path.getReportScreenShotPath());
+		File mainFolder = new File(pathRoot.getReportScreenShotPath());
 		File[] files = mainFolder.listFiles();
 		if (files != null) {
 			for (File f : files) {
@@ -113,7 +113,7 @@ public class ScreenShot extends BaseUtil {
 	}
 
 	public void deleteTestOutput() {
-		File mainFolder = new File(Path.getTestOutputPath());
+		File mainFolder = new File(pathRoot.getTestOutputPath());
 		File[] files = mainFolder.listFiles();
 		if (files != null) {
 			for (File f : files) {

@@ -5,7 +5,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
-import config.Capability.ClassInit;
+import config.Capability.ClassConfig;
 import util.Common.BaseUtil;
 import util.Data.ExcelUtil;
 import util.Data.JsonUtil;
@@ -16,7 +16,7 @@ public class TestBase extends BaseUtil {
 	
 	@BeforeSuite(alwaysRun = true)
 	public void initialize() {
-		classInit = new ClassInit();
+		classInit = new ClassConfig();
 		classInit.BeforeSuite();
 	}
 
@@ -33,25 +33,25 @@ public class TestBase extends BaseUtil {
 	}
 	
 	public PropertiesUtil fileFromProperties(String fileName) {
-		String path = Path.fileFromProperties(fileName);
+		String path = pathRoot.fileFromProperties(fileName);
 		return new PropertiesUtil (path) ;
 		
 	}
 	
 	public ExcelUtil fileFromExcelTestData(String fileName) {
-		String path = Path.fileFromExcelTestData(fileName);
+		String path = pathRoot.fileFromExcelTestData(fileName);
 		return new ExcelUtil (path) ;
 		
 	}
 	
 	public JsonUtil fileFromJsonTestData(String fileName) {
-		String path = Path.fileFromJsonTestData(fileName);
+		String path = pathRoot.fileFromJsonTestData(fileName);
 		return new JsonUtil (path) ;
 		
 	}
 	
 	public TextUtil fileFromTextTestData(String fileName) {
-		String path = Path.fileFromTextTestData(fileName);
+		String path = pathRoot.fileFromTextTestData(fileName);
 		return new TextUtil (path) ;
 		
 	}
