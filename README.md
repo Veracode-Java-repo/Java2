@@ -92,7 +92,7 @@
 
 <a href="#"><h2 align="center">`API` Automation</h2></a>
 
-> <h4> TestCase : <a href="#">API</a></h4>
+> <h4> <a href="#">API</a> : TestCase</h4>
 
 ```java
 public class demo extends TestBase {
@@ -107,7 +107,7 @@ public class demo extends TestBase {
 
 }
 ```
-> <h4> Helper Methods : <a href="#">API</a></h4>
+> <h4> <a href="#">API</a> : Helper Methods</h4>
 
 ```java
 restAPI.getStatusCode
@@ -165,7 +165,7 @@ browser_version = latest
 ```
 <h1></h1>
 
-> <h4> PageObject : <a href="#">WEB</a></h4>
+> <h4> <a href="#">WEB</a> : PageObject</h4>
 ```java
 public class LoginPage extends PageBase {
 	
@@ -185,7 +185,7 @@ public class LoginPage extends PageBase {
 	}
 ```
 
-> <h4> TestCase : <a href="#">WEB</a></h4>
+> <h4> <a href="#">WEB</a> : TestCase</h4>
 ```java
 public class demo extends TestBase {
 
@@ -201,7 +201,7 @@ public class demo extends TestBase {
 
 }
 ```
-> <h4> Helper Methods : <a href="#">WEB</a></h4>
+> <h4> <a href="#">WEB</a> : Helper Methods</h4>
 
 ```java
 selenium.Log()
