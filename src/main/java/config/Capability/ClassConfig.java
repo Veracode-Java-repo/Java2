@@ -107,6 +107,11 @@ public class ClassConfig extends BaseUtil {
 		if (!reportscreenshotFile.isDirectory()) {
 			reportscreenshotFile.mkdir();
 		}
+		
+		File ExcelReportFile = new File(pathRoot.getExcelReportPath());
+		if (!ExcelReportFile.isDirectory()) {
+			ExcelReportFile.mkdir();
+		}
 
 		File ExtentReportFile = new File(pathRoot.getExtentReportPath());
 		if (!ExtentReportFile.isDirectory()) {

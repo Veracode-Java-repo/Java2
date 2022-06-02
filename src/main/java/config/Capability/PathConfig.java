@@ -19,6 +19,7 @@ public class PathConfig {
 	private File otherDataRoot = new File(testdataRoot, "Others");
 
 	private File rsRoot = new File(projectPathRoot, "Report-ScreenShot");
+	private File excelReportRoot = new File(rsRoot, "ExcelReport");
 	private File extentReportRoot = new File(rsRoot, "ExtentReport");
 	private File screenShotsRoot = new File(rsRoot, "ScreenShots");
 	private File passedShotsRoot = new File(screenShotsRoot, "Passed");
@@ -44,7 +45,7 @@ public class PathConfig {
 		File file = new File(testoutputRoot, fileName);
 		return file.getAbsolutePath();
 	}
-	
+
 	// Test Suite XML Root
 	public String getSuitesXMLPath() {
 		return suitesRoot.getAbsolutePath();
@@ -121,7 +122,7 @@ public class PathConfig {
 		File file = new File(textDataRoot, fileName);
 		return file.getAbsolutePath();
 	}
-	
+
 	public String getOtherTestDataPath() {
 		return otherDataRoot.getAbsolutePath();
 	}
@@ -148,6 +149,16 @@ public class PathConfig {
 
 	public String fileFromExtentReport(String fileName) {
 		File file = new File(extentReportRoot, fileName);
+		return file.getAbsolutePath();
+	}
+
+	// Extent Report Root
+	public String getExcelReportPath() {
+		return excelReportRoot.getAbsolutePath();
+	}
+
+	public String fileFromExcelReport(String fileName) {
+		File file = new File(excelReportRoot, fileName);
 		return file.getAbsolutePath();
 	}
 
