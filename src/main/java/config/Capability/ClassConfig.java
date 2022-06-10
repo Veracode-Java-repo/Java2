@@ -15,6 +15,7 @@ import org.testng.ITestResult;
 import config.Report.ExtentReportManger;
 import config.Report.ScreenShot;
 import util.Common.BaseUtil;
+import util.Data.LocatorsUtil;
 import util.Data.PropertiesUtil;
 
 public class ClassConfig extends BaseUtil {
@@ -34,6 +35,8 @@ public class ClassConfig extends BaseUtil {
 		Extent = new ExtentReportManger();
 		screenShot = new ScreenShot();
 		PropertiesUtil propUtil = new PropertiesUtil(pathRoot.fileFromProperties("browser.properties"));
+		new LocatorsUtil(pathRoot.fileFromProperties("locators.properties"));
+
 		BrowserName = propUtil.getValue("BrowserName").toLowerCase();
 		BrowserStack = propUtil.getValue("BrowserStack").toLowerCase();
 		waitTime = Integer.parseInt(propUtil.getValue("waitTime"));

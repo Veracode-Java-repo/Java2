@@ -2,6 +2,7 @@ package util.Common;
 
 import java.util.HashMap;
 
+import org.openqa.selenium.By;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 
@@ -22,7 +23,7 @@ public class BaseUtil {
 	protected static String BrowserName;
 	protected static String BrowserStack;
 	protected static int waitTime;
-	protected HashMap<String, String> Locators = new HashMap<>();
+	protected static HashMap<String, By> Locators = new HashMap<String, By>();
 
 	protected static ThreadLocal<String> testType = new ThreadLocal<String>();
 

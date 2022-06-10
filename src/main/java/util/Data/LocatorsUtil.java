@@ -6,6 +6,8 @@ import java.io.FileWriter;
 import java.util.Map;
 import java.util.Properties;
 
+import org.openqa.selenium.By;
+
 import util.Common.BaseUtil;
 
 public class LocatorsUtil extends BaseUtil {
@@ -21,7 +23,7 @@ public class LocatorsUtil extends BaseUtil {
 			 { try {
 				FileOutputStream outputProp = new FileOutputStream(LocatorsPath);
 				FileWriter write = new FileWriter(LocatorsPath);
-				write.write("###Locators Should be like ~ login_xpath = //div[] ### Should End With _xpath, _id, _name, _className, _linkText, _css ");
+				write.write("###Locators Should be end with _ ~ xpath, id, name, className, tagName, cssSelector, linkText, partialLinkText  ###");
 				write.close();
 				outputProp.close();
 				loc.load(new FileReader(LocatorsPath));
@@ -33,10 +35,25 @@ public class LocatorsUtil extends BaseUtil {
 		}
 		
 		for (Map.Entry<Object, Object> entry : loc.entrySet()) {
-			Locators.put(String.valueOf(entry.getKey()), String.valueOf(entry.getValue()));
+			String[] locators = entry.getKey().toString().split("_");
+			
+			switch (locators[1].toLowerCase()) {
+				
+				case "id":Locators.put(entry.getKey().toString(), By.id(entry.getValue().toString()));break;
+				case "className":Locators.put(entry.getKey().toString(), By.className(entry.getValue().toString()));break;
+				case "tagName":Locators.put(entry.getKey().toString(), By.tagName(entry.getValue().toString()));break;
+				case "xpath": Locators.put(entry.getKey().toString(), By.xpath(entry.getValue().toString()));break;
+				case "cssSelector":Locators.put(entry.getKey().toString(), By.cssSelector(entry.getValue().toString()));break;
+				case "linkText":Locators.put(entry.getKey().toString(), By.linkText(entry.getValue().toString()));break;
+				case "name":Locators.put(entry.getKey().toString(), By.name(entry.getValue().toString()));break;
+				case "partialLinkText":Locators.put(entry.getKey().toString(), By.partialLinkText(entry.getValue().toString()));break;
+				default:Locators.put(entry.getKey().toString(), By.xpath(entry.getValue().toString()));break;
+			}
+			
 		}
 		
 	}
+	
 	
 	
 

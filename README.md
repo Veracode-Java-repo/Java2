@@ -163,6 +163,12 @@ os_version = 10
 browser = Chrome
 browser_version = latest
 ```
+> #### locators.properties ( src / test / resources / Properties )
+```properties
+Username_id = user-name
+```
+ to get the value : Locators.get("Username_id")
+
 <h1></h1>
 
 > <h4> <a href="#">WEB</a> : PageObject</h4>
@@ -173,12 +179,11 @@ public class LoginPage extends PageBase {
 		super();
 	}
 
-	private By Username = By.id("user-name");
 	@FindBy(id = "password") private WebElement password;
 	@FindBy(id="login-button") private WebElement loginbutton;
 
 	public LoginPage Login() {
-		selenium.type(Username, "standard_user");
+		selenium.type(Locators.get("Username_id"), "standard_user");
 		selenium.type(password, "secret_sauce");
 		selenium.click(loginbutton);
 		return this;
@@ -395,7 +400,7 @@ selenium.waitUNtil().visibilityOfNestedElementsLocatedBy()
 	</td>
 	<td>
 	    <b>src / test / resources / Properties</b> <br>
-	    <a href="/src/test/resources/Properties"><i>First Time Auto Generate : browser.properties</i></a>
+	    <a href="/src/test/resources/Properties"><i>First Time Auto Generate : browser.properties, browserStack.properties, locators.properties</i></a>
 	</td>
 </tr>	
 <tr>
