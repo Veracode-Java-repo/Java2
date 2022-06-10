@@ -404,7 +404,7 @@ selenium.waitUNtil().visibilityOfNestedElementsLocatedBy()
 	</td>
 </tr>	
 <tr>
-	<td><img src="/src/main/resources/Images/folder.png" alt="folders" width="270" height="430"> </td> 
+	<td><img src="/src/main/resources/Images/folders.png" alt="folders" width="270" height="430"> </td> 
  	<td> 
 	   <b> src / test / resources / TestData </b><i><br>Excel<br>JSON<br>Others<br>Text<br></i>
 	    <a href="/src/test/resources/TestData"><i>can store xlsx, json, txt, etc...</i></a> <hr>
