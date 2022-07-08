@@ -3,12 +3,12 @@ package testCase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import config.TestNG.Author;
+import kmdv.Base.TestBase;
+import kmdv.Common.RestAPIUtil;
+import kmdv.Common.SeleniumUtil;
+import kmdv.config.TestNG.Author;
 import pages.SauceLabs.HomePage;
 import pages.SauceLabs.LoginPage;
-import util.Base.TestBase;
-import util.Common.RestAPIUtil;
-import util.Common.SeleniumUtil;
 
 public class demo1 extends TestBase {
 

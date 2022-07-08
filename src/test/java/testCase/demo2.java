@@ -3,11 +3,11 @@ package testCase;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-import config.TestNG.Author;
+import kmdv.Base.TestBase;
+import kmdv.Common.SeleniumUtil;
+import kmdv.Common.SeleniumUtil.locatorType;
+import kmdv.config.TestNG.Author;
 import pages.SauceLabs.LoginPage;
-import util.Base.TestBase;
-import util.Common.SeleniumUtil;
-import util.Common.SeleniumUtil.locatorType;
 
 public class demo2 extends TestBase {
 

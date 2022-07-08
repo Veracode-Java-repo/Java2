@@ -5,7 +5,7 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import util.Base.PageBase;
+import kmdv.Base.PageBase;
 
 public class CartPage extends PageBase {
 

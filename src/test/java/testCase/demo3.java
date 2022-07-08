@@ -7,11 +7,11 @@ import org.openqa.selenium.WebElement;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
-import config.TestNG.Author;
-import config.TestNG.TestID;
-import util.Base.TestBase;
-import util.Common.SeleniumUtil;
-import util.Data.JsonUtil;
+import kmdv.Base.TestBase;
+import kmdv.Common.SeleniumUtil;
+import kmdv.Data.JsonUtil;
+import kmdv.config.TestNG.Author;
+import kmdv.config.TestNG.TestID;
 
 public class demo3 extends TestBase {
 
