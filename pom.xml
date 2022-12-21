@@ -11,6 +11,7 @@
 				<version>3.0.0-M4</version>
 				<configuration>
 					<useSystemClassLoader>false</useSystemClassLoader>
+					<skipTests>true</skipTests>
 					<suiteXmlFiles>
 						<suiteXmlFile>SuitesXML/TestNG-Local.xml</suiteXmlFile>
 					</suiteXmlFiles>
@@ -24,6 +25,19 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
+	
+	<distributionManagement>
+        <repository>
+            <id>nexus-rel-upload</id>
+            <name>Internal Releases</name>
+            <url>https://nexus-repo-oss.demo.cbc.beescloud.com/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus-snap-upload</id>
+            <name>Internal Snapshot Releases</name>
+            <url>https://nexus-repo-oss.demo.cbc.beescloud.com/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 	<dependencies>
 
@@ -119,4 +133,6 @@
 		</dependency>
 
 	</dependencies>
+	
+	
 </project>
